@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "nifpga-dll",
+    "nifpga-dll-sys",
+    "nifpga-dll-type-macro"
+]

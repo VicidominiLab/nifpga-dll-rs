@@ -1,0 +1,18 @@
+[package]
+name = "nifpga-dll-sys"
+version = "0.3.0"
+authors = ["David Taylor <david.baker.taylor@gmail.com>", "Mattia Donato <mattia.fpga@gmail.com>"]
+edition = "2018"
+description = "Unofficial binding for NiFpga.dll"
+license = "MIT"
+repository = "https://github.com/VicidominiLab/nifpga-dll-rs"
+
+links = "NiFpga"
+build = "build.rs"
+
+[dependencies]
+libc = "0.2.71"
+
+#[features]
+#default = []
+#static = []

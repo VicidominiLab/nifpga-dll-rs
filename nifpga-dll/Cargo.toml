@@ -1,0 +1,14 @@
+[package]
+name = "nifpga-dll"
+version = "0.3.0"
+authors = ["David Taylor <david.baker.taylor@gmail.com>", "Mattia Donato <mattia.fpga@gmail.com>"]
+edition = "2018"
+description = "Unofficial binding for NiFpga.dll"
+license = "MIT"
+repository = "https://github.com/VicidominiLab/nifpga-dll-rs"
+
+[dependencies]
+nifpga-dll-sys = { path = "../nifpga-dll-sys" }
+nifpga-dll-type-macro = { path = "../nifpga-dll-type-macro" }
+libc = "0.2.71"
+fehler = "1.0.0"

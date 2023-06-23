@@ -1,0 +1,16 @@
+[package]
+name = "nifpga-dll-type-macro"
+version = "0.3.0"
+authors = ["David Taylor <david.baker.taylor@gmail.com>", "Connor Worley <connorbworley@gmail.com>", "Mattia Donato <mattia.fpga@gmail.com>"]
+edition = "2018"
+description = "Unofficial binding for NiFpga.dll"
+license = "MIT"
+repository = "https://github.com/VicidominiLab/nifpga-dll-rs"
+
+[dependencies]
+proc-macro2 = "1.0.17"
+syn = {version = "1.0.27", features = ["full"]}
+quote = "1.0.6"
+
+[lib]
+proc-macro = true
