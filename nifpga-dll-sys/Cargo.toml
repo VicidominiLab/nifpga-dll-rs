@@ -6,6 +6,7 @@ edition = "2018"
 description = "Unofficial binding for NiFpga.dll"
 license = "MIT"
 repository = "https://github.com/VicidominiLab/nifpga-dll-rs"
+readme = "../README.md"
 
 links = "NiFpga"
 build = "build.rs"
