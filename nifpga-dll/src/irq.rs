@@ -31,7 +31,7 @@ impl Context<'_> {
     }
 
     #[throws(NifpgaError)]
-    pub fn reserve(session: &Session) -> Context {
+    pub fn reserve(session: &Session) -> Context<'_> {
         let mut context = std::ptr::null();
         unsafe { nifpga_dll_sys::reserve_irq_context(session.handle, &mut context).to_result()? }
         Context { context, session }

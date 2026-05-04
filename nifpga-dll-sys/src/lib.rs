@@ -1,10 +1,6 @@
 extern crate libc;
 use libc::{c_char, c_void, size_t};
 
-//#[cfg_attr(feature = "static", link(name = "NiFpga", kind = "static"))]
-//#[cfg_attr(not(feature = "static"), link(name = "NiFpga", kind = "dylib"))]
-#[cfg_attr(not(feature = "static"), link(name = "NiFpga", kind = "raw-dylib"))]
-
 extern "C" {
     // #[link_name = "NiFpga_Initialize"]
     // pub fn initialize() -> i32;

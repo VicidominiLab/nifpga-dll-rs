@@ -3,7 +3,6 @@ extern crate libc;
 use datatype::Type;
 use fehler::throws;
 use std::ffi::CString;
-use std::sync::Once;
 
 use crate::datatype;
 use crate::error::{NifpgaError, ToResult};
@@ -126,7 +125,7 @@ impl Session {
     }
 
     #[throws(NifpgaError)]
-    pub fn reserve_irq_context(&self) -> Context {
+    pub fn reserve_irq_context(&self) -> Context<'_> {
         Context::reserve(&self)?
     }
 }
