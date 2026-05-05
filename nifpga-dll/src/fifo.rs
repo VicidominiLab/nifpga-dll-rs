@@ -33,12 +33,7 @@ impl<'a, T: Type> ReadFifo<'a, T> {
 
     #[throws(NifpgaError)]
     pub fn read(&self, data: &mut [T], timeout: u32) -> usize {
-        T::read_fifo(
-            self.session.handle,
-            self.handle,
-            data,
-            timeout,
-        )?
+        T::read_fifo(self.session.handle, self.handle, data, timeout)?
     }
 
     #[throws(NifpgaError)]

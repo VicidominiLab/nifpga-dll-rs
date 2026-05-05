@@ -94,12 +94,7 @@ impl Type for f32 {
     }
 
     #[throws(NifpgaError)]
-    fn read_fifo(
-        session: u32,
-        fifo: u32,
-        data: &mut [Self],
-        timeout: u32,
-    ) -> usize {
+    fn read_fifo(session: u32, fifo: u32, data: &mut [Self], timeout: u32) -> usize {
         let mut elements_remaining = 0;
         unsafe {
             nifpga_dll_sys::read_fifo_f32(
