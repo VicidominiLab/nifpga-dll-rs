@@ -3,7 +3,6 @@ extern crate libc;
 use datatype::Type;
 use fehler::throws;
 use std::ffi::CString;
-use std::sync::Once;
 
 use crate::datatype;
 use crate::error::{NifpgaError, ToResult};
@@ -44,7 +43,8 @@ impl Session {
         run: bool,
         reset_on_close: bool,
     ) -> Self {
-        // initialize()?;
+        unsafe { nifpga_dll_sys::initialize().to_result()? }
+
         let mut handle = 0;
         unsafe {
             nifpga_dll_sys::open(
@@ -126,7 +126,7 @@ impl Session {
     }
 
     #[throws(NifpgaError)]
-    pub fn reserve_irq_context(&self) -> Context {
+    pub fn reserve_irq_context(&self) -> Context<'_> {
         Context::reserve(&self)?
     }
 }
@@ -138,5 +138,6 @@ impl Drop for Session {
                 .to_result()
                 .unwrap()
         };
+        unsafe { nifpga_dll_sys::finalize().to_result().unwrap() }
     }
 }
