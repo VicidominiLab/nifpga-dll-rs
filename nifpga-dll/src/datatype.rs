@@ -27,14 +27,14 @@ pub trait Type: Sized {
         timeout: u32,
     ) -> Result<usize, NifpgaError>;
 
-    unsafe fn acquire_fifo_read_elements<'a>(
+    unsafe fn acquire_fifo_read_elements(
         session: u32,
         fifo: u32,
         num_elements: usize,
         timeout: u32,
     ) -> Result<(*const Self, usize, usize), NifpgaError>;
 
-    unsafe fn acquire_fifo_write_elements<'a>(
+    unsafe fn acquire_fifo_write_elements(
         session: u32,
         fifo: u32,
         num_elements: usize,

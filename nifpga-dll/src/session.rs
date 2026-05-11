@@ -83,21 +83,21 @@ impl Session {
     }
 
     #[throws(NifpgaError)]
-    pub fn open_read_fifo<'a, T: Type>(
-        &'a self,
+    pub fn open_read_fifo<T: Type>(
+        &self,
         fifo: u32,
         depth: usize,
-    ) -> (ReadFifo<'a, T>, usize) {
-        ReadFifo::<'a, T>::open(&self, fifo, depth)?
+    ) -> (ReadFifo<T>, usize) {
+        ReadFifo::<T>::open(&self, fifo, depth)?
     }
 
     #[throws(NifpgaError)]
-    pub fn open_write_fifo<'a, T: Type>(
-        &'a self,
+    pub fn open_write_fifo<T: Type>(
+        &self,
         fifo: u32,
         depth: usize,
-    ) -> (WriteFifo<'a, T>, usize) {
-        WriteFifo::<'a, T>::open(&self, fifo, depth)?
+    ) -> (WriteFifo<T>, usize) {
+        WriteFifo::<T>::open(&self, fifo, depth)?
     }
 
     #[throws(NifpgaError)]
