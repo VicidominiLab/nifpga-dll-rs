@@ -177,7 +177,7 @@ extern "C" {
         irqs: u32,
         timeout: u32,
         irqsAsserted: *mut u32,
-        timedOut: *mut u8,
+        timedOut: *mut bool,
     ) -> i32;
 
     #[link_name = "NiFpga_AcknowledgeIrqs"]
