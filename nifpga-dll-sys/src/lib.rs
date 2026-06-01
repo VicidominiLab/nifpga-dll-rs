@@ -2,10 +2,10 @@ extern crate libc;
 use libc::{c_char, c_void, size_t};
 
 extern "C" {
-    #[link_name = "NiFpga_Initialize"]
-    pub fn initialize() -> i32;
+    // #[link_name = "NiFpga_Initialize"]
+    // pub fn initialize() -> i32;
 
-    #[link_name = "NiFpga_Open"]
+    #[link_name = "NiFpgaDll_Open"]
     pub fn open(
         bitfile: *const c_char,
         signature: *const c_char,
@@ -14,163 +14,163 @@ extern "C" {
         session: *mut u32,
     ) -> i32;
 
-    #[link_name = "NiFpga_Close"]
+    #[link_name = "NiFpgaDll_Close"]
     pub fn close(session: u32, attribute: u32) -> i32;
 
-    #[link_name = "NiFpga_Finalize"]
-    pub fn finalize() -> i32;
+    // #[link_name = "NiFpga_Finalize"]
+    // pub fn finalize() -> i32;
 
-    #[link_name = "NiFpga_Run"]
+    #[link_name = "NiFpgaDll_Run"]
     pub fn run(session: u32) -> i32;
 
-    #[link_name = "NiFpga_Abort"]
+    #[link_name = "NiFpgaDll_Abort"]
     pub fn abort(session: u32) -> i32;
 
-    #[link_name = "NiFpga_Reset"]
+    #[link_name = "NiFpgaDll_Reset"]
     pub fn reset(session: u32) -> i32;
 
-    #[link_name = "NiFpga_Download"]
+    #[link_name = "NiFpgaDll_Download"]
     pub fn download(session: u32) -> i32;
 
-    #[link_name = "NiFpga_ReadI8"]
+    #[link_name = "NiFpgaDll_ReadI8"]
     pub fn read_i8(session: u32, indicator: u32, value: *mut i8) -> i32;
 
-    #[link_name = "NiFpga_WriteI8"]
+    #[link_name = "NiFpgaDll_WriteI8"]
     pub fn write_i8(session: u32, control: u32, value: i8) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayI8"]
+    #[link_name = "NiFpgaDll_ReadArrayI8"]
     pub fn read_array_i8(session: u32, indicator: u32, array: *mut i8, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayI8"]
+    #[link_name = "NiFpgaDll_WriteArrayI8"]
     pub fn write_array_i8(session: u32, indicator: u32, array: *const i8, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadU8"]
+    #[link_name = "NiFpgaDll_ReadU8"]
     pub fn read_u8(session: u32, indicator: u32, value: *mut u8) -> i32;
 
-    #[link_name = "NiFpga_WriteU8"]
+    #[link_name = "NiFpgaDll_WriteU8"]
     pub fn write_u8(session: u32, control: u32, value: u8) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayU8"]
+    #[link_name = "NiFpgaDll_ReadArrayU8"]
     pub fn read_array_u8(session: u32, indicator: u32, array: *mut u8, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayU8"]
+    #[link_name = "NiFpgaDll_WriteArrayU8"]
     pub fn write_array_u8(session: u32, indicator: u32, array: *const u8, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadI16"]
+    #[link_name = "NiFpgaDll_ReadI16"]
     pub fn read_i16(session: u32, indicator: u32, value: *mut i16) -> i32;
 
-    #[link_name = "NiFpga_WriteI16"]
+    #[link_name = "NiFpgaDll_WriteI16"]
     pub fn write_i16(session: u32, control: u32, value: i16) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayI16"]
+    #[link_name = "NiFpgaDll_ReadArrayI16"]
     pub fn read_array_i16(session: u32, indicator: u32, array: *mut i16, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayI16"]
+    #[link_name = "NiFpgaDll_WriteArrayI16"]
     pub fn write_array_i16(session: u32, indicator: u32, array: *const i16, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadU16"]
+    #[link_name = "NiFpgaDll_ReadU16"]
     pub fn read_u16(session: u32, indicator: u32, value: *mut u16) -> i32;
 
-    #[link_name = "NiFpga_WriteU16"]
+    #[link_name = "NiFpgaDll_WriteU16"]
     pub fn write_u16(session: u32, control: u32, value: u16) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayU16"]
+    #[link_name = "NiFpgaDll_ReadArrayU16"]
     pub fn read_array_u16(session: u32, indicator: u32, array: *mut u16, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayU16"]
+    #[link_name = "NiFpgaDll_WriteArrayU16"]
     pub fn write_array_u16(session: u32, indicator: u32, array: *const u16, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadI32"]
+    #[link_name = "NiFpgaDll_ReadI32"]
     pub fn read_i32(session: u32, indicator: u32, value: *mut i32) -> i32;
 
-    #[link_name = "NiFpga_WriteI32"]
+    #[link_name = "NiFpgaDll_WriteI32"]
     pub fn write_i32(session: u32, control: u32, value: i32) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayI32"]
+    #[link_name = "NiFpgaDll_ReadArrayI32"]
     pub fn read_array_i32(session: u32, indicator: u32, array: *mut i32, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayI32"]
+    #[link_name = "NiFpgaDll_WriteArrayI32"]
     pub fn write_array_i32(session: u32, indicator: u32, array: *const i32, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadU32"]
+    #[link_name = "NiFpgaDll_ReadU32"]
     pub fn read_u32(session: u32, indicator: u32, value: *mut u32) -> i32;
 
-    #[link_name = "NiFpga_WriteU32"]
+    #[link_name = "NiFpgaDll_WriteU32"]
     pub fn write_u32(session: u32, control: u32, value: u32) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayU32"]
+    #[link_name = "NiFpgaDll_ReadArrayU32"]
     pub fn read_array_u32(session: u32, indicator: u32, array: *mut u32, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayU32"]
+    #[link_name = "NiFpgaDll_WriteArrayU32"]
     pub fn write_array_u32(session: u32, indicator: u32, array: *const u32, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadI64"]
+    #[link_name = "NiFpgaDll_ReadI64"]
     pub fn read_i64(session: u32, indicator: u32, value: *mut i64) -> i32;
 
-    #[link_name = "NiFpga_WriteI64"]
+    #[link_name = "NiFpgaDll_WriteI64"]
     pub fn write_i64(session: u32, control: u32, value: i64) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayI64"]
+    #[link_name = "NiFpgaDll_ReadArrayI64"]
     pub fn read_array_i64(session: u32, indicator: u32, array: *mut i64, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayI64"]
+    #[link_name = "NiFpgaDll_WriteArrayI64"]
     pub fn write_array_i64(session: u32, indicator: u32, array: *const i64, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadU64"]
+    #[link_name = "NiFpgaDll_ReadU64"]
     pub fn read_u64(session: u32, indicator: u32, value: *mut u64) -> i32;
 
-    #[link_name = "NiFpga_WriteU64"]
+    #[link_name = "NiFpgaDll_WriteU64"]
     pub fn write_u64(session: u32, control: u32, value: u64) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayU64"]
+    #[link_name = "NiFpgaDll_ReadArrayU64"]
     pub fn read_array_u64(session: u32, indicator: u32, array: *mut u64, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayU64"]
+    #[link_name = "NiFpgaDll_WriteArrayU64"]
     pub fn write_array_u64(session: u32, indicator: u32, array: *const u64, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadSgl"]
+    #[link_name = "NiFpgaDll_ReadSgl"]
     pub fn read_f32(session: u32, indicator: u32, value: *mut f32) -> i32;
 
-    #[link_name = "NiFpga_WriteSgl"]
+    #[link_name = "NiFpgaDll_WriteSgl"]
     pub fn write_f32(session: u32, control: u32, value: f32) -> i32;
 
-    #[link_name = "NiFpga_ReadArraySgl"]
+    #[link_name = "NiFpgaDll_ReadArraySgl"]
     pub fn read_array_f32(session: u32, indicator: u32, array: *mut f32, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArraySgl"]
+    #[link_name = "NiFpgaDll_WriteArraySgl"]
     pub fn write_array_f32(session: u32, indicator: u32, array: *const f32, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadDbl"]
+    #[link_name = "NiFpgaDll_ReadDbl"]
     pub fn read_f64(session: u32, indicator: u32, value: *mut f64) -> i32;
 
-    #[link_name = "NiFpga_WriteDbl"]
+    #[link_name = "NiFpgaDll_WriteDbl"]
     pub fn write_f64(session: u32, control: u32, value: f64) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayDbl"]
+    #[link_name = "NiFpgaDll_ReadArrayDbl"]
     pub fn read_array_f64(session: u32, indicator: u32, array: *mut f64, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayDbl"]
+    #[link_name = "NiFpgaDll_WriteArrayDbl"]
     pub fn write_array_f64(session: u32, indicator: u32, array: *const f64, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReadBool"]
+    #[link_name = "NiFpgaDll_ReadBool"]
     pub fn read_bool(session: u32, indicator: u32, value: *mut bool) -> i32;
 
-    #[link_name = "NiFpga_WriteBool"]
+    #[link_name = "NiFpgaDll_WriteBool"]
     pub fn write_bool(session: u32, control: u32, value: bool) -> i32;
 
-    #[link_name = "NiFpga_ReadArrayBool"]
+    #[link_name = "NiFpgaDll_ReadArrayBool"]
     pub fn read_array_bool(session: u32, indicator: u32, array: *mut bool, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_WriteArrayBool"]
+    #[link_name = "NiFpgaDll_WriteArrayBool"]
     pub fn write_array_bool(session: u32, indicator: u32, array: *const bool, size: size_t) -> i32;
 
-    #[link_name = "NiFpga_ReserveIrqContext"]
+    #[link_name = "NiFpgaDll_ReserveIrqContext"]
     pub fn reserve_irq_context(session: u32, context: *mut *const c_void) -> i32;
 
-    #[link_name = "NiFpga_UnreserveIrqContext"]
+    #[link_name = "NiFpgaDll_UnreserveIrqContext"]
     pub fn unreserve_irq_context(session: u32, context: *const c_void) -> i32;
 
-    #[link_name = "NiFpga_WaitOnIrqs"]
+    #[link_name = "NiFpgaDll_WaitOnIrqs"]
     pub fn wait_on_irqs(
         session: u32,
         context: *const c_void,
@@ -180,13 +180,13 @@ extern "C" {
         timedOut: *mut bool,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcknowledgeIrqs"]
+    #[link_name = "NiFpgaDll_AcknowledgeIrqs"]
     pub fn acknowledge_irqs(session: u32, irqs: u32) -> i32;
 
-    #[link_name = "NiFpga_ConfigureFifo"]
+    #[link_name = "NiFpgaDll_ConfigureFifo"]
     pub fn configure_fifo(session: u32, fifo: u32, depth: size_t) -> i32;
 
-    #[link_name = "NiFpga_ConfigureFifo2"]
+    #[link_name = "NiFpgaDll_ConfigureFifo2"]
     pub fn configure_fifo2(
         session: u32,
         fifo: u32,
@@ -194,13 +194,13 @@ extern "C" {
         actualDepth: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_StartFifo"]
+    #[link_name = "NiFpgaDll_StartFifo"]
     pub fn start_fifo(session: u32, fifo: u32) -> i32;
 
-    #[link_name = "NiFpga_StopFifo"]
+    #[link_name = "NiFpgaDll_StopFifo"]
     pub fn stop_fifo(session: u32, fifo: u32) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoI8"]
+    #[link_name = "NiFpgaDll_ReadFifoI8"]
     pub fn read_fifo_i8(
         session: u32,
         fifo: u32,
@@ -210,7 +210,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoI8"]
+    #[link_name = "NiFpgaDll_WriteFifoI8"]
     pub fn write_fifo_i8(
         session: u32,
         fifo: u32,
@@ -220,7 +220,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsI8"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsI8"]
     pub fn acquire_fifo_read_elements_i8(
         session: u32,
         fifo: u32,
@@ -231,7 +231,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsI8"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsI8"]
     pub fn acquire_fifo_write_elements_i8(
         session: u32,
         fifo: u32,
@@ -242,7 +242,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoU8"]
+    #[link_name = "NiFpgaDll_ReadFifoU8"]
     pub fn read_fifo_u8(
         session: u32,
         fifo: u32,
@@ -252,7 +252,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoU8"]
+    #[link_name = "NiFpgaDll_WriteFifoU8"]
     pub fn write_fifo_u8(
         session: u32,
         fifo: u32,
@@ -262,7 +262,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsU8"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsU8"]
     pub fn acquire_fifo_read_elements_u8(
         session: u32,
         fifo: u32,
@@ -273,7 +273,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsU8"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsU8"]
     pub fn acquire_fifo_write_elements_u8(
         session: u32,
         fifo: u32,
@@ -284,7 +284,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoI16"]
+    #[link_name = "NiFpgaDll_ReadFifoI16"]
     pub fn read_fifo_i16(
         session: u32,
         fifo: u32,
@@ -294,7 +294,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoI16"]
+    #[link_name = "NiFpgaDll_WriteFifoI16"]
     pub fn write_fifo_i16(
         session: u32,
         fifo: u32,
@@ -304,7 +304,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsI16"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsI16"]
     pub fn acquire_fifo_read_elements_i16(
         session: u32,
         fifo: u32,
@@ -315,7 +315,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsI16"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsI16"]
     pub fn acquire_fifo_write_elements_i16(
         session: u32,
         fifo: u32,
@@ -326,7 +326,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoU16"]
+    #[link_name = "NiFpgaDll_ReadFifoU16"]
     pub fn read_fifo_u16(
         session: u32,
         fifo: u32,
@@ -336,7 +336,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoU16"]
+    #[link_name = "NiFpgaDll_WriteFifoU16"]
     pub fn write_fifo_u16(
         session: u32,
         fifo: u32,
@@ -346,7 +346,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsU16"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsU16"]
     pub fn acquire_fifo_read_elements_u16(
         session: u32,
         fifo: u32,
@@ -357,7 +357,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsU16"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsU16"]
     pub fn acquire_fifo_write_elements_u16(
         session: u32,
         fifo: u32,
@@ -368,7 +368,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoI32"]
+    #[link_name = "NiFpgaDll_ReadFifoI32"]
     pub fn read_fifo_i32(
         session: u32,
         fifo: u32,
@@ -378,7 +378,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoI32"]
+    #[link_name = "NiFpgaDll_WriteFifoI32"]
     pub fn write_fifo_i32(
         session: u32,
         fifo: u32,
@@ -388,7 +388,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsI32"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsI32"]
     pub fn acquire_fifo_read_elements_i32(
         session: u32,
         fifo: u32,
@@ -399,7 +399,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsI32"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsI32"]
     pub fn acquire_fifo_write_elements_i32(
         session: u32,
         fifo: u32,
@@ -410,7 +410,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoU32"]
+    #[link_name = "NiFpgaDll_ReadFifoU32"]
     pub fn read_fifo_u32(
         session: u32,
         fifo: u32,
@@ -420,7 +420,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoU32"]
+    #[link_name = "NiFpgaDll_WriteFifoU32"]
     pub fn write_fifo_u32(
         session: u32,
         fifo: u32,
@@ -430,7 +430,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsU32"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsU32"]
     pub fn acquire_fifo_read_elements_u32(
         session: u32,
         fifo: u32,
@@ -441,7 +441,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsU32"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsU32"]
     pub fn acquire_fifo_write_elements_u32(
         session: u32,
         fifo: u32,
@@ -452,7 +452,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoI64"]
+    #[link_name = "NiFpgaDll_ReadFifoI64"]
     pub fn read_fifo_i64(
         session: u32,
         fifo: u32,
@@ -462,7 +462,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoI64"]
+    #[link_name = "NiFpgaDll_WriteFifoI64"]
     pub fn write_fifo_i64(
         session: u32,
         fifo: u32,
@@ -472,7 +472,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsI64"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsI64"]
     pub fn acquire_fifo_read_elements_i64(
         session: u32,
         fifo: u32,
@@ -483,7 +483,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsI64"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsI64"]
     pub fn acquire_fifo_write_elements_i64(
         session: u32,
         fifo: u32,
@@ -494,7 +494,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoU64"]
+    #[link_name = "NiFpgaDll_ReadFifoU64"]
     pub fn read_fifo_u64(
         session: u32,
         fifo: u32,
@@ -504,7 +504,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoU64"]
+    #[link_name = "NiFpgaDll_WriteFifoU64"]
     pub fn write_fifo_u64(
         session: u32,
         fifo: u32,
@@ -514,7 +514,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsU64"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsU64"]
     pub fn acquire_fifo_read_elements_u64(
         session: u32,
         fifo: u32,
@@ -525,7 +525,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsU64"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsU64"]
     pub fn acquire_fifo_write_elements_u64(
         session: u32,
         fifo: u32,
@@ -536,7 +536,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoSgl"]
+    #[link_name = "NiFpgaDll_ReadFifoSgl"]
     pub fn read_fifo_f32(
         session: u32,
         fifo: u32,
@@ -546,7 +546,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoSgl"]
+    #[link_name = "NiFpgaDll_WriteFifoSgl"]
     pub fn write_fifo_f32(
         session: u32,
         fifo: u32,
@@ -556,7 +556,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsSgl"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsSgl"]
     pub fn acquire_fifo_read_elements_f32(
         session: u32,
         fifo: u32,
@@ -567,7 +567,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsSgl"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsSgl"]
     pub fn acquire_fifo_write_elements_f32(
         session: u32,
         fifo: u32,
@@ -578,7 +578,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoDbl"]
+    #[link_name = "NiFpgaDll_ReadFifoDbl"]
     pub fn read_fifo_f64(
         session: u32,
         fifo: u32,
@@ -588,7 +588,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoDbl"]
+    #[link_name = "NiFpgaDll_WriteFifoDbl"]
     pub fn write_fifo_f64(
         session: u32,
         fifo: u32,
@@ -598,7 +598,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsDbl"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsDbl"]
     pub fn acquire_fifo_read_elements_f64(
         session: u32,
         fifo: u32,
@@ -609,7 +609,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsDbl"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsDbl"]
     pub fn acquire_fifo_write_elements_f64(
         session: u32,
         fifo: u32,
@@ -620,7 +620,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReadFifoBool"]
+    #[link_name = "NiFpgaDll_ReadFifoBool"]
     pub fn read_fifo_bool(
         session: u32,
         fifo: u32,
@@ -630,7 +630,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_WriteFifoBool"]
+    #[link_name = "NiFpgaDll_WriteFifoBool"]
     pub fn write_fifo_bool(
         session: u32,
         fifo: u32,
@@ -640,7 +640,7 @@ extern "C" {
         emptyElementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoReadElementsBool"]
+    #[link_name = "NiFpgaDll_AcquireFifoReadElementsBool"]
     pub fn acquire_fifo_read_elements_bool(
         session: u32,
         fifo: u32,
@@ -651,7 +651,7 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_AcquireFifoWriteElementsBool"]
+    #[link_name = "NiFpgaDll_AcquireFifoWriteElementsBool"]
     pub fn acquire_fifo_write_elements_bool(
         session: u32,
         fifo: u32,
@@ -662,16 +662,16 @@ extern "C" {
         elementsRemaining: *mut size_t,
     ) -> i32;
 
-    #[link_name = "NiFpga_ReleaseFifoElements"]
+    #[link_name = "NiFpgaDll_ReleaseFifoElements"]
     pub fn release_fifo_elements(session: u32, fifo: u32, elements: size_t) -> i32;
 
-    #[link_name = "NiFpga_GetPeerToPeerFifoEndpoint"]
+    #[link_name = "NiFpgaDll_GetPeerToPeerFifoEndpoint"]
     pub fn get_p2p_fifo_endpoint(session: u32, fifo: u32, endpoint: *mut u32) -> i32;
 
-    #[link_name = "NiFpga_GetBitfileContents"]
+    #[link_name = "NiFpgaDll_GetBitfileContents"]
     pub fn get_bitfile_contents(session: u32, contents: *mut *const c_char) -> i32;
 
-    #[link_name = "NiFpga_ClientFunctionCall"]
+    #[link_name = "NiFpgaDll_ClientFunctionCall"]
     pub fn client_function_call(
         session: u32,
         group: u32,
