@@ -43,8 +43,7 @@ impl Session {
         run: bool,
         reset_on_close: bool,
     ) -> Self {
-        unsafe { nifpga_dll_sys::initialize().to_result()? }
-
+        // initialize()?;
         let mut handle = 0;
         unsafe {
             nifpga_dll_sys::open(
@@ -130,6 +129,5 @@ impl Drop for Session {
                 .to_result()
                 .unwrap()
         };
-        unsafe { nifpga_dll_sys::finalize().to_result().unwrap() }
     }
 }
