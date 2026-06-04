@@ -105,3 +105,7 @@ true //reset on close
     Ok(())
 }
 ```
+
+## Note ##
+
+In Windows, you need to enable the feature of `raw-dylib` to link to the `NiFpga.dll`.
