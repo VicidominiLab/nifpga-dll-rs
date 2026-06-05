@@ -1,6 +1,6 @@
 [package]
 name = "nifpga-dll"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["David Taylor <david.baker.taylor@gmail.com>", "Mattia Donato <mattia.fpga@gmail.com>"]
 edition = "2018"
 description = "Unofficial binding for NiFpga.dll"
@@ -13,7 +13,7 @@ default = []
 raw-dylib = ["nifpga-dll-sys/raw-dylib"]
 
 [dependencies]
-nifpga-dll-sys = { path = "../nifpga-dll-sys" }
-nifpga-dll-type-macro = { path = "../nifpga-dll-type-macro" }
+nifpga-dll-sys = { version = "0.4.0", path = "../nifpga-dll-sys" }
+nifpga-dll-type-macro = { version = "0.4.0", path = "../nifpga-dll-type-macro" }
 libc = "0.2.71"
 fehler = "1.0.0"

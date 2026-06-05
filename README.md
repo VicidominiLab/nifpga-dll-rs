@@ -1,23 +1,37 @@
-nifpga-dll-rs, 
-===
-Unofficial bindings to `NiFpga.dll`.
+# nifpga-dll-rs
 
-The `nifpga-dll-rs` is an unofficial library for Rust designed to interface with the APIs provided by the DLL library `NiFpga.dll`. This library allows for example to open a FPGA session, to read/set the registers, and to read/write data from/to the FIFOs. 
+Unofficial Rust bindings for `NiFpga.dll`.
 
-`nifpga-dll-rs` is composed by three crates: `nifpga-dll`, `nifpga-dll-sys`, `nifpga-dll-type-macro`. 
+`nifpga-dll-rs` is an unofficial Rust library for interacting with the APIs exposed by NI’s `NiFpga.dll`. It provides Rust bindings that allow applications to open FPGA sessions, read from and write to registers, and transfer data to and from FIFOs.
 
-**Disclaimer: `nifpga-dll-rs` is NOT an official NI interface. This library is an independent and autonomous development, unaffiliated with NI. To use `nifpga-dll-rs`, ensure you have the DLL library `NiFpga.dll` provided by NI installed on your system.**
+The project is composed of three crates:
 
-The `nifpga-dll-rs` project is distributed under the MIT License. It is a derivative work that incorporates code from the following two projects:
-- `nifpga-rs` https://github.com/DBTaylor/nifpga-rs author [David Taylor](http://github.com/DBTaylor) released [on crates.io](https://crates.io/crates/nifpga) under MIT License and
-- `ni-fpga-rs` https://github.com/first-rust-competition/ni-fpga-rs author [Connor Worley](https://github.com/connorworley) under MIT License available [on crates.io](https://crates.io/crates/ni-fpga).
+- `nifpga-dll`
+- `nifpga-dll-sys`
+- `nifpga-dll-type-macro`
 
+## Disclaimer
 
-----
+`nifpga-dll-rs` is **not** an official NI interface.
 
-If you want to replace this Rust crate with your own project or if you want to become a maintainer, you are very welcome! Do not hesitate to contact us for any inquiries or requests.
+This project is an independent and autonomous development and is **not** affiliated with, endorsed by, or maintained by NI. To use `nifpga-dll-rs`, you must have the official `NiFpga.dll` library provided by NI installed on your system.
 
-----
+## License and acknowledgments
+
+`nifpga-dll-rs` is distributed under the MIT License.
+
+This project is a derivative work that incorporates code and ideas from the following MIT-licensed projects:
+
+- [`nifpga-rs`](https://github.com/DBTaylor/nifpga-rs), authored by [David Taylor](https://github.com/DBTaylor), also available on [crates.io](https://crates.io/crates/nifpga)
+- [`ni-fpga-rs`](https://github.com/first-rust-competition/ni-fpga-rs), authored by [Connor Worley](https://github.com/connorworley), also available on [crates.io](https://crates.io/crates/ni-fpga)
+
+Special thanks to [@teweitsai](https://github.com/teweitsai) for updating the codebase, IRQ support, and extending compatibility to Linux.
+
+## Contributions and maintenance
+
+If NI, or anyone else, would like to replace this crate with an official or alternative Rust implementation, contribute improvements, or become a maintainer, you are very welcome.
+
+Please feel free to contact us for any inquiry, proposal, or request.
 
 
 ## FAQ ##
@@ -31,8 +45,20 @@ The `signature` that you need to open the FPGA Session you can find in the  `.lv
 The NI FPGA `.lvbitx` files are XML text files.
 There you can find the address of all objects of your bit file.
 
+## Example: ##
 
-## An example of usage: ##
+
+### Notes
+
+On Windows, the `raw-dylib` feature must be enabled in order to link against `NiFpga.dll`.
+
+Add the following dependency to your project's `Cargo.toml`:
+
+```toml
+nifpga-dll = { version = "0.4.0", features = ["raw-dylib"] }
+```
+
+### Usage
 
 ```rust
 extern crate nifpga_dll;
@@ -105,7 +131,3 @@ true //reset on close
     Ok(())
 }
 ```
-
-## Note ##
-
-In Windows, you need to enable the feature of `raw-dylib` to link to the `NiFpga.dll`.
